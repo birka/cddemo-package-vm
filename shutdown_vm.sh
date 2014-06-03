@@ -25,5 +25,5 @@ if [ ! -z "$($VBOXMANAGE list runningvms | grep ${VM_NAME})" ];then
     exit 1
   fi
 fi
-export VM_WAS_RUNNING=$VM_WAS_RUNNING
+echo "VM_WAS_RUNNING="$VM_WAS_RUNNING
 
