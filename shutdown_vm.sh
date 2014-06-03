@@ -6,8 +6,10 @@ SHUTDOWN_CMD='ssh heise@localhost -p 2222 sudo shutdown -h now'
 VBOXMANAGE=/usr/bin/vboxmanage
 
 WAIT_TIMEOUT=30
+VM_WAS_RUNNING=0
 
 if [ ! -z "$($VBOXMANAGE list runningvms | grep ${VM_NAME})" ];then
+  VM_WAS_RUNNING=1
   echo -n "Shutting down VM $VM_NAME."
   $SHUTDOWN_CMD &
   S=0
@@ -23,4 +25,5 @@ if [ ! -z "$($VBOXMANAGE list runningvms | grep ${VM_NAME})" ];then
     exit 1
   fi
 fi
+export VM_WAS_RUNNING
 
