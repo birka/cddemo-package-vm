@@ -1,7 +1,7 @@
 #/bin/bash
 
 VM_NAME="CD_Demo"
-SHUTDOWN_CMD='ssh heise@localhost -p 2222 sudo shutdown -h now'
+SHUTDOWN_CMD='ssh heise@localhost -p 2222 sudo bash /usr/local/cddemo-utils/cleanup_and_shutdown.sh \"$(echo $$)\"'
 
 VBOXMANAGE=/usr/bin/vboxmanage
 
@@ -26,4 +26,4 @@ if [ ! -z "$($VBOXMANAGE list runningvms | grep ${VM_NAME})" ];then
   fi
 fi
 echo "VM_WAS_RUNNING="$VM_WAS_RUNNING
-
+exit 0
