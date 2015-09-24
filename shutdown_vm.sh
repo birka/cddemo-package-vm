@@ -1,7 +1,7 @@
 #/bin/bash
 
 VM_NAME="CD_Demo"
-SHUTDOWN_CMD='ssh heise@localhost -p 2222 sudo bash /usr/local/cddemo-utils/cleanup_and_shutdown.sh $(echo $$)'
+SHUTDOWN_CMD="ssh heise@localhost -p 2222 sudo bash /usr/local/cddemo-utils/cleanup_and_shutdown.sh $1"
 
 VBOXMANAGE=/usr/bin/vboxmanage
 
